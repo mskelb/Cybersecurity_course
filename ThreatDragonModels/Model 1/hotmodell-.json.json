@@ -24,11 +24,13 @@
                 "text": "Databas"
               },
               "topLine": {
-                "strokeWidth": 1,
+                "stroke": "red",
+                "strokeWidth": 3,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1,
+                "stroke": "red",
+                "strokeWidth": 3,
                 "strokeDasharray": null
               }
             },
@@ -42,8 +44,139 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
-              "hasOpenThreats": false,
+              "threats": [
+                {
+                  "id": "b82d8e3d-f7a1-4e42-bf22-de25efcf0aca",
+                  "title": "Non–human–caused events (server crash or EMP)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Changes in data that might occur as a result of non-human-caused events such as an electromagnetic pulse (EMP) or server crash. ",
+                  "mitigation": "• Data might include (cryptographic) checksums for verification of integrity. \n• Regular and verified backups: Implement a robust backup strategy to regularly back up the data. Ensure that backups are stored securely and independently. Regularly test the restoration process to verify the integrity of backups and their ability to recover data in case of an event like an EMP or server crash. Backups must be available to restore the affected data to its correct state. \n• The use of DIGITAL SIGNATURES to provide effective nonrepudiation measures such that evidence of logins, messages sent, electronic document viewing, and sending cannot be denied. \n• Regular testing and simulation: Conduct regular testing and simulation of disaster scenarios to validate the effectiveness of the prevention and mitigation measures. This includes simulating EMP events, server crashes, or other non-human incidents to assess your readiness and identify areas for improvement.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 104,
+                  "score": ""
+                },
+                {
+                  "id": "756df18d-4482-4875-8a22-300b8a2ed436",
+                  "title": "Unauthorized access",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Confidentiality",
+                  "description": "• If the database lacks proper access control, malicious actors may gain unauthorized access to sensitive customer data that can lead to confidentiality breaches.",
+                  "mitigation": "• Implement Role-Based Access Control (RBAC): to ensure that employees have the minimum privileges necessary to perform their assigned tasks. Restrict access to sensitive data and limit administrative privileges only to those who require them (Least privilege principle) \n• Implement multi-factor authentication (MFA): in order to add an extra layer of security. Require users to provide multiple forms of authentication, such as passwords and one-time codes, to mitigate the risk of unauthorized access.\n• Enforce strong password policies that require users to choose complex passwords, regularly change them, and prohibit password reuse. \n• Security monitoring and logging: Implement robust logging and monitoring mechanisms to capture and analyze system logs and detect any unauthorized access attempts or suspicious activities. Regularly review and analyze logs to identify potential security incidents. ",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 106,
+                  "score": ""
+                },
+                {
+                  "id": "21e625a6-a279-4a23-bf0c-6eb61a0e61aa",
+                  "title": "Insider threats",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Confidentiality",
+                  "description": "• Employees or/and individuals with authorized access to the database may misuse their privileges to access or disclose confidential customer information.",
+                  "mitigation": "• Implement Role-Based Access Control (RBAC): to ensure that employees have the minimum privileges necessary to perform their assigned tasks. Restrict access to sensitive data and limit administrative privileges only to those who require them.\n• Security monitoring and logging: Implement robust logging and monitoring mechanisms to capture and analyze system logs and detect any unauthorized access attempts or suspicious activities. Regularly review and analyze logs to identify potential security incidents. \n• Employee background checks to identify any past history of misconduct or potential risks.\n• Implement data loss prevention (DLP) measures: to monitor and control the movement of sensitive data within the organization. This can help detect and prevent unauthorized attempts to access, copy, or transmit confidential information.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 108,
+                  "score": ""
+                },
+                {
+                  "id": "3fe42a99-8083-4b1d-9880-03b6043b9ab3",
+                  "title": "Network eavesdropping",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Confidentiality",
+                  "description": "•  If communication between the customer management system and the database is not adequately protected –– attackers could intercept network traffic and gain access to confidential data.",
+                  "mitigation": "•  Mitigated through proper network security measures such as encryption: implement encryption mechanisms, such as Transport Layer Security (TLS) for network communication and encryption at rest for stored data, to protect sensitive customer information from unauthorized access.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 109,
+                  "score": ""
+                },
+                {
+                  "id": "bcc8a064-4067-42b5-b0c8-2c33fd430b29",
+                  "title": "Data manipulation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Integrity",
+                  "description": "Attackers may attempt to modify or tamper with customer data stored in the database, leading to incorrect or misleading information.\n",
+                  "mitigation": "• Database access controls: Implement robust access controls to restrict unauthorized access to the database. Use strong authentication mechanisms, such as username/password combinations, multi-factor authentication, or biometric authentication, to ensure that only authorized individuals can access and modify the data.\n• Database auditing and monitoring: Implement robust auditing and monitoring capabilities to detect and alert on suspicious activities or unauthorized modifications to the database. Regularly review logs and implement anomaly detection techniques.\n• Role-based access control (RBAC): to grant different levels of access privileges to different user roles. Only provide necessary permissions based on job responsibilities, and regularly review and update user roles and access permissions to prevent unauthorized modifications.\n• Encryption: Implement encryption mechanisms to protect the confidentiality and integrity of customer data. Encrypt sensitive data both at rest and in transit, using strong encryption algorithms. This helps prevent unauthorized modification or tampering with the data, as the attacker would require the encryption keys to make meaningful changes.\n• Database firewall: Deploy a database firewall to monitor and control database traffic. This helps detect and block unauthorized attempts to modify or tamper with customer data. Configure the firewall to allow only authorized traffic and prevent unauthorized access.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 110,
+                  "score": ""
+                },
+                {
+                  "id": "2b47104f-d27d-4092-9695-268a6a466103",
+                  "title": "(SQL) Injection attacks",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Integrity",
+                  "description": "Malicious users might exploit vulnerabilities in the customer management system to inject unauthorized commands or malicious code –– something that could compromise the integrity of the database.",
+                  "mitigation": "• Input validation and sanitization: Implement strong input validation mechanisms to ensure that user-supplied data meets the expected format and criteria. Validate and sanitize all user inputs to prevent the execution of unauthorized commands or malicious code. \n• Input length and type validation: Validate input length and data type to ensure they match the expected ranges and formats. Reject or sanitize inputs that exceed defined limits or do not conform to the expected data types.\n• Principle of least privilege: Ensure that the database user accounts utilized by the customer management system have the minimum necessary privileges required for their intended functions. Restrict permissions to reduce the impact of potential injection attacks.\n• Regular security testing and code auditing: Conduct regular security testing, including vulnerability scanning and penetration testing, to identify and address any injection ",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 111,
+                  "score": ""
+                },
+                {
+                  "id": "5b425530-6d61-4ee4-aba3-ffce5ebce287",
+                  "title": "Software vulnerabilities",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "If the database software or associated applications have security weaknesses, they could be exploited to compromise data integrity.",
+                  "mitigation": "",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 112,
+                  "score": ""
+                },
+                {
+                  "id": "8f4a3851-13ba-4b27-a927-675853fdad90",
+                  "title": "Denial of Service (DoS) attacks",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Availability",
+                  "description": "Attackers may target the customer management system or the underlying database infrastructure, flooding it with requests or overwhelming system resources, causing service disruptions and making the data temporarily unavailable.",
+                  "mitigation": "Implement Distributed Denial of Service (DDoS) mitigation techniques, such as traffic filtering, rate limiting, or utilizing Content Delivery Networks (CDNs), to protect against DDoS attacks and ensure the availability of the customer management system.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
+                },
+                {
+                  "id": "9bc54920-e385-4846-9cbf-2edcdbc6822b",
+                  "title": "Hardware or software failures",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Availability",
+                  "description": "Failures in the server hardware, network infrastructure, or database software could result in downtime, impacting the availability of the customer management system and its data.",
+                  "mitigation": "Implement redundant systems, including failover mechanisms and regular backups, to minimize the impact of hardware or software failures: (1) implement redundant server hardware, such as clustering or server replication, to ensure failover capabilities in case of hardware failures. Utilize load balancing techniques to distribute traffic across multiple servers, reducing the risk of overload and improving system availability. (2) Use database replication or mirroring to maintain synchronized copies of the database, enabling failover to secondary systems in case of software or hardware failures. (3) Test and verify the integrity of backups periodically.\n",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 114,
+                  "score": ""
+                },
+                {
+                  "id": "9270c6f1-afb6-4be4-bae2-c7a687082dae",
+                  "title": "Backup and recovery issues",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Availability",
+                  "description": "Inadequate or faulty backup and recovery mechanisms could lead to data loss or extended downtime in the event of a system failure or disaster. ",
+                  "mitigation": "Disaster recovery planning –– Develop and implement a comprehensive disaster recovery plan that includes backup strategies, off–site storage, and procedures for quick recovery in the event of a catastrophic failure or natural disaster.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 115,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true,
               "isALog": true,
               "storesCredentials": true,
               "isEncrypted": false,
@@ -940,8 +1073,8 @@
                 "text": "Molntjänst"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1,
+                "stroke": "red",
+                "strokeWidth": 3,
                 "strokeDasharray": null
               }
             },
@@ -955,8 +1088,74 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
-              "hasOpenThreats": false
+              "threats": [
+                {
+                  "id": "6de81868-3e5a-453d-af05-50fa2c5051ad",
+                  "title": "Unauthorized Access (Confidentiality, Integrity, Availability)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Confidentiality",
+                  "description": "(1) Unauthorized individuals or entities may gain access to the cloud service or the internal customer management system, potentially leading to data breaches or unauthorized actions, such as unauthorized modifications or tampering with customer data, compromising its integrity. \n(2) Unauthorized access can also disrupt the availability of the customer management system or the cloud service, impacting business operations.",
+                  "mitigation": "Implement strong authentication mechanisms, such as multi–factor authentication, for accessing both the cloud service and the internal customer management system. Use secure and encrypted communication protocols for data transfer. Regularly monitor and review access logs for any unauthorized access attempts.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 123,
+                  "score": ""
+                },
+                {
+                  "id": "066e89ed-ff1c-4048-988d-d8eb770f6771",
+                  "title": "Data Breach (a data breach affects all three categories of the CIA triad)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Confidentiality",
+                  "description": "Customer data stored in the cloud service or the internal customer management system may be compromised, leading to unauthorized access, exposure, or theft of sensitive information.",
+                  "mitigation": "• Implement robust security measures for both the cloud service and the customer management system, such as encryption at rest and in transit, access controls, and regular security updates. \n• Conduct penetration testing and vulnerability assessments to identify and remediate potential weaknesses. \n• Establish an incident response and data breach notification procedures.\n• Secure Communication Channels: utilize secure communication protocols, such as HTTPS or VPNs, to establish encrypted and authenticated communication channels between the cloud service, the external entity, and the internal systems.\n• Implement strong encryption algorithms and cipher suites to ensure data integrity and confidentiality during communication, both for data in transit and in rest according to: \n(1) Encrypt Data in Transit: \n(a) Data Transmission over Untrusted Networks: When transmitting sensitive data between the cloud service, the external entity, and the customer management system over public or untrusted networks (such as the internet), encryption should be used. This prevents unauthorized interception, eavesdropping, or tampering with the data during transit.\n(b) Communication with External Entities: If the cloud service needs to communicate with external entities encryption ensures the confidentiality and integrity of the data being exchanged. It safeguards against the risk of unauthorized access or data leakage during the communication process.\n\n(2) Encrypt Data at Rest:\n(a) Data Storage in Cloud Service: When storing sensitive data within the cloud service, encryption should be applied to protect the data from unauthorized access or disclosure. This includes encrypting databases, files, backups, or any other data stored within the cloud service.\n(b) Data Storage in Internal Systems: Similarly, sensitive data stored within the internal customer management system or other internal systems should be encrypted to prevent unauthorized access in case of data leakage, physical theft, or unauthorized system access.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 124,
+                  "score": ""
+                },
+                {
+                  "id": "9b6ec4c9-418e-4d9c-b653-e6b4ba455d78",
+                  "title": "Data Loss or Corruption",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Data stored in the cloud service or the internal customer management system may be lost or corrupted due to technical issues, software bugs, or human error, potentially leading to data unavailability or integrity issues.",
+                  "mitigation": "• Implement Regular Data Backups: Establish a robust data backup strategy that includes regular and automated backups of critical data. Ensure backups are stored securely and offsite to protect against data loss in case of system failures, disasters, or malicious activities.\n• Redundancy and Fault-Tolerant Systems: Implement redundancy and fault-tolerant configurations in the infrastructure to minimize the impact of hardware or software failures. This may involve using redundant storage systems, servers, or network components to ensure data availability and prevent data loss.\n• Implement Data Validation and Error Checking: Employ data validation mechanisms and error-checking procedures to identify and prevent data corruption. This includes using checksums, hashing algorithms, or data integrity checks to verify the integrity of stored data and detect any unauthorized modifications.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 125,
+                  "score": ""
+                },
+                {
+                  "id": "9d2c319a-2ad1-4631-9136-736c4b8a32c5",
+                  "title": "Misconfiguration",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Improperly configured settings or access controls in the cloud service or the customer management system may lead to unintended exposure or unauthorized access to customer data.",
+                  "mitigation": "• Follow security best practices and guidelines provided by the cloud service provider, such as the Principle of Least Privilege (PoLP): Grant the minimum necessary privileges to users, applications, and systems accessing the cloud service. Only provide access rights and permissions required for specific tasks or responsibilities. \n• Regularly review and revoke unnecessary privileges to minimize the risk of unauthorized access or unintended exposure. \n• Regularly review and validate the configuration settings for both the cloud service and the customer management system. Conduct security assessments and audits to identify and address any misconfigurations or vulnerabilities.\n• Automation and Infrastructure-as-Code (IaC) Principles: Leverage automation and infrastructure-as-code practices to ensure consistent and repeatable deployments. Use configuration management tools and templates to define and enforce security configurations, reducing the risk of human error and inconsistencies.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 126,
+                  "score": ""
+                },
+                {
+                  "id": "38195d8b-5be3-49fc-8df6-5b5a3478c44b",
+                  "title": "Insider Threats",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Confidentiality",
+                  "description": "Confidentiality: Insider threats involve authorized individuals with privileged access misusing or abusing their access to gain unauthorized access to customer data, compromising its confidentiality.\nIntegrity: Insider threats can intentionally or unintentionally modify or corrupt customer data, compromising its integrity.\nAvailability: Insider threats may intentionally disrupt the availability of the customer management system or the cloud service, impacting business operations.",
+                  "mitigation": "",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 127,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true
             }
           },
           {
@@ -973,8 +1172,8 @@
                 "text": "Kundhantering"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1,
+                "stroke": "red",
+                "strokeWidth": 3,
                 "strokeDasharray": null
               }
             },
@@ -988,8 +1187,100 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
-              "hasOpenThreats": false
+              "threats": [
+                {
+                  "id": "360f23d8-abbe-4e76-9a0f-33a6a283629a",
+                  "title": "Unauthorized Access",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Confidentiality",
+                  "description": "There is a risk of unauthorized individuals or entities gaining access to sensitive customer data during the interaction with the Skatteverkets service.\n",
+                  "mitigation": "• Implement strong authentication mechanisms: Enforce the use of unique usernames and strong passwords for accessing the customer management system. Consider implementing two-factor authentication for an additional layer of security.\n• Access controls: Implement granular access controls to ensure that only authorized personnel can retrieve customer data from the Tax Agency's service.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 116,
+                  "score": ""
+                },
+                {
+                  "id": "13299a44-3567-454d-ba1c-b248c60fce5e",
+                  "title": "Data Leakage",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Confidentiality",
+                  "description": "Customer data may be inadvertently exposed or leaked, compromising the confidentiality of the information.",
+                  "mitigation": "• Data loss prevention: Implement data loss prevention mechanisms to monitor and prevent accidental data leakage, such as implementing email filtering and data classification policies.\n• Encrypt the communication between the customer management system and the Tax Agency's service to protect data in transit.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 117,
+                  "score": ""
+                },
+                {
+                  "id": "c28bf075-15a6-48d6-8608-cb17a72b40d8",
+                  "title": "Data Manipulation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "There is a risk that customer data retrieved from the Skatteverkets service could be modified or tampered with during transit or while being stored within the customer management system.",
+                  "mitigation": "• Secure communication: Use secure communication protocols (e.g., HTTPS) to prevent data tampering during transit between the customer management system and the Tax Agency's service.\n• Data validation and verification: Implement robust data validation and verification processes to ensure the accuracy and integrity of customer data retrieved from the Tax Agency's service. This can include checksums, digital signatures, or data integrity checks.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 118,
+                  "score": ""
+                },
+                {
+                  "id": "3e4e7e94-8bec-44c1-97a2-7cd29b5692a0",
+                  "title": "Inaccurate or Incomplete Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Integrity can be compromised if customer data retrieved from the Tax Agency's service is incomplete, outdated, or contains errors.",
+                  "mitigation": "• Data validation and verification: Implement robust data validation and verification processes to ensure the accuracy and integrity of customer data retrieved from the Tax Agency's service. This can include checksums, digital signatures, or data integrity checks.\n•  Audit trails: Maintain comprehensive audit logs to track any changes or modifications made to customer data within the customer management system.\n",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 119,
+                  "score": ""
+                },
+                {
+                  "id": "091b379d-a6f9-45ee-bc2a-ee697b5c62ae",
+                  "title": "Service Disruption: ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Availability",
+                  "description": "The customer management system relies on the availability of the Tax Agency's service. Any disruption or unavailability of the service can impact the availability of customer data and the overall functionality of the system.",
+                  "mitigation": "Redundancy and failover configurations: Configure the customer management system with redundancy and failover mechanisms to minimize the impact of service disruptions from the Tax Agency's service. This can involve having backup servers or alternative service providers.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 120,
+                  "score": ""
+                },
+                {
+                  "id": "2b38b30f-39de-41e5-ad85-540a2fa8f0e3",
+                  "title": "Performance Issues",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Availability",
+                  "description": "Slow response times or delays in retrieving customer data from the Tax Agency's service can affect the availability and responsiveness of the customer management system.",
+                  "mitigation": "• Have backup plans or alternative methods to retrieve customer data in case the Tax Agency's service becomes unavailable.\n• Performance monitoring: Continuously monitor the performance of the Tax Agency's service and proactively address any performance issues or bottlenecks that may impact the availability of customer data.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 121,
+                  "score": ""
+                },
+                {
+                  "id": "7f07cec2-ab7a-4270-9156-f3ecffa7648b",
+                  "title": "Regulatory Compliance and Privacy",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "",
+                  "mitigation": "• An organization should stay informed about applicable data protection regulations, such as the General Data Protection Regulation (GDPR) in the European Union, and ensure compliance with their requirements.\n• Obtain necessary consents and permissions from customers for accessing their information from the Tax Agency and handle customer data in accordance with privacy regulations.\n• Regularly review and update privacy policies and procedures to reflect any changes in regulations or best practices.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 122,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true
             }
           },
           {
@@ -1102,7 +1393,7 @@
       }
     ],
     "diagramTop": 10,
-    "threatTop": 100
+    "threatTop": 127
   },
   "version": "2.0.2"
 }
